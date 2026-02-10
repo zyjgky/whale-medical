@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部署指南 - OMEGARX3 1200 鱼油产品说明二维码</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #1e88e5 0%, #26c6da 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #0d47a1;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #1e88e5;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #0d47a1;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .method {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .method:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .method-title {
+            font-size: 20px;
+            color: #1e88e5;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .method-badge {
+            background: #4caf50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        .steps {
+            margin-left: 10px;
+        }
+        
+        .step {
+            margin: 15px 0;
+            padding: 12px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-left: 3px solid #1e88e5;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe082 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ffa000;
+        }
+        
+        code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+            font-size: 14px;
+        }
+        
+        .qr-generator {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .qr-generator h2 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+        
+        .qr-generator p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            border: 2px solid #1e88e5;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #0d47a1;
+            box-shadow: 0 0 10px rgba(30, 136, 229, 0.3);
+        }
+        
+        button {
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        #downloadBtn {
+            background: linear-gradient(135deg, #2196f3 0%, #42a5f5 100%);
+        }
+        
+        #qrcode {
+            margin: 25px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .note {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .note strong {
+            color: #2e7d32;
+        }
+        
+        a {
+            color: #1e88e5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background: #0d47a1;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        
+        .pro {
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 OMEGARX3 1200 鱼油</h1>
+        <div class="subtitle">产品说明二维码生成指南</div>
+        
+        <div class="highlight">
+            <h3 style="color: #e65100; margin-bottom: 15px;">📌 重要提示</h3>
+            <p style="font-size: 16px; line-height: 1.8;">
+                要让老人能通过微信扫码查看产品说明，您需要先将HTML文件上传到互联网上。<br>
+                <strong>不用担心！</strong>下面提供的都是<strong style="color: #d84315;">完全免费、永久有效</strong>的方案，操作也非常简单！
+            </p>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🏆 方法对比：选择最适合您的</div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>方法</th>
+                        <th>难度</th>
+                        <th>时间</th>
+                        <th>推荐度</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Netlify</strong></td>
+                        <td class="pro">★☆☆☆☆ 最简单</td>
+                        <td>2-3分钟</td>
+                        <td class="pro">⭐⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GitHub Pages</strong></td>
+                        <td>★★☆☆☆ 简单</td>
+                        <td>5-8分钟</td>
+                        <td class="pro">⭐⭐⭐⭐</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vercel</strong></td>
+                        <td>★★☆☆☆ 简单</td>
+                        <td>3-5分钟</td>
+                        <td class="pro">⭐⭐⭐⭐</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🚀 方法一：Netlify（强烈推荐！）</div>
+            <div class="method">
+                <div class="method-title">
+                    ✨ 最简单的方法
+                    <span class="method-badge">推荐</span>
+                </div>
+                <p style="color: #666; margin-bottom: 20px;">拖拽上传，1分钟搞定！完全不需要任何技术知识。</p>
+                <div class="steps">
+                    <div class="step">
+                        <strong>第1步：</strong> 访问 <a href="https://netlify.com" target="_blank">netlify.com</a>
+                    </div>
+                    <div class="step">
+                        <strong>第2步：</strong> 点击右上角 "Sign up"（注册），可以用邮箱或GitHub账号注册
+                    </div>
+                    <div class="step">
+                        <strong>第3步：</strong> 登录后，点击 "Add new site" → "Deploy manually"
+                    </div>
+                    <div class="step">
+                        <strong>第4步：</strong> 看到一个虚线框，直接把 <code>omegarx3_product_info.html</code> 文件拖进去
+                    </div>
+                    <div class="step">
+                        <strong>第5步：</strong> 等待5-10秒，自动部署完成！
+                    </div>
+                    <div class="step">
+                        <strong>第6步：</strong> 复制生成的网址（类似：<code>https://xxx.netlify.app</code>）
+                    </div>
+                    <div class="step">
+                        <strong>第7步：</strong> 完整网址是：<code>https://xxx.netlify.app/omegarx3_product_info.html</code>
+                    </div>
+                    <div class="step">
+                        <strong>第8步：</strong> 用这个完整网址在下方生成二维码
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">🌐 方法二：GitHub Pages</div>
+            <div class="method">
+                <div class="method-title">
+                    💎 长期稳定的选择
+                    <span class="method-badge" style="background: #2196f3;">稳定</span>
+                </div>
+                <p style="color: #666; margin-bottom: 20px;">适合长期使用，由GitHub提供服务支持。</p>
+                <div class="steps">
+                    <div class="step">
+                        <strong>第1步：</strong> 访问 <a href="https://github.com" target="_blank">github.com</a> 并注册账号
+                    </div>
+                    <div class="step">
+                        <strong>第2步：</strong> 登录后，点击右上角的 "+" → "New repository"
+                    </div>
+                    <div class="step">
+                        <strong>第3步：</strong> 仓库名称输入：<code>fish-oil-info</code>（或其他您喜欢的名字）
+                    </div>
+                    <div class="step">
+                        <strong>第4步：</strong> 选择 "Public"（公开），勾选 "Add a README file"
+                    </div>
+                    <div class="step">
+                        <strong>第5步：</strong> 点击 "Create repository" 创建仓库
+                    </div>
+                    <div class="step">
+                        <strong>第6步：</strong> 进入仓库后，点击 "Add file" → "Upload files"
+                    </div>
+                    <div class="step">
+                        <strong>第7步：</strong> 上传 <code>omegarx3_product_info.html</code> 文件
+                    </div>
+                    <div class="step">
+                        <strong>第8步：</strong> 点击 "Settings"（设置）→ 左侧菜单找到 "Pages"
+                    </div>
+                    <div class="step">
+                        <strong>第9步：</strong> 在 "Source" 下选择 "main" 分支，点击 "Save"
+                    </div>
+                    <div class="step">
+                        <strong>第10步：</strong> 等待1-2分钟，刷新页面会看到网址
+                    </div>
+                    <div class="step">
+                        <strong>第11步：</strong> 完整网址格式：<code>https://您的用户名.github.io/fish-oil-info/omegarx3_product_info.html</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">⚡ 方法三：Vercel</div>
+            <div class="method">
+                <div class="method-title">
+                    🚄 快速部署
+                    <span class="method-badge" style="background: #ff9800;">快速</span>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <strong>第1步：</strong> 访问 <a href="https://vercel.com" target="_blank">vercel.com</a>
+                    </div>
+                    <div class="step">
+                        <strong>第2步：</strong> 点击 "Sign Up" 注册（可用GitHub账号登录）
+                    </div>
+                    <div class="step">
+                        <strong>第3步：</strong> 登录后，点击 "Add New..." → "Project"
+                    </div>
+                    <div class="step">
+                        <strong>第4步：</strong> 上传 <code>omegarx3_product_info.html</code> 文件
+                    </div>
+                    <div class="step">
+                        <strong>第5步：</strong> 点击 "Deploy"，等待部署完成
+                    </div>
+                    <div class="step">
+                        <strong>第6步：</strong> 获得网址后，完整路径是：<code>https://xxx.vercel.app/omegarx3_product_info.html</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="note">
+            <h3 style="color: #2e7d32; margin-bottom: 15px;">💡 选择建议</h3>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li><strong>第一次使用，想要最简单：</strong>选择 Netlify</li>
+                <li><strong>想要长期稳定，不介意多几步：</strong>选择 GitHub Pages</li>
+                <li><strong>追求部署速度：</strong>选择 Vercel</li>
+                <li><strong>三种方法都是完全免费的，网址永久有效！</strong></li>
+            </ul>
+        </div>
+        
+        <div class="qr-generator">
+            <h2>🔲 二维码生成器</h2>
+            <p>完成部署后，将获得的<strong>完整网址</strong>粘贴到下方，立即生成二维码！</p>
+            
+            <input type="text" id="urlInput" placeholder="请输入完整网址，例如: https://yourname.netlify.app/omegarx3_product_info.html">
+            
+            <div>
+                <button onclick="generateQR()">🎯 立即生成二维码</button>
+                <button onclick="downloadQR()" id="downloadBtn" style="display: none;">💾 下载二维码</button>
+            </div>
+            
+            <div id="qrcode"></div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">📱 如何分享给老人</div>
+            <div style="background: white; padding: 20px; border-radius: 10px;">
+                <h4 style="color: #0d47a1; margin-bottom: 15px;">三种分享方式：</h4>
+                <div style="line-height: 2.2;">
+                    <p><strong>1️⃣ 打印二维码</strong></p>
+                    <p style="color: #666; margin-left: 20px; margin-bottom: 15px;">
+                        下载二维码后，打印在A4纸上，放在保健品旁边，方便老人随时扫描查看。
+                    </p>
+                    
+                    <p><strong>2️⃣ 微信发送</strong></p>
+                    <p style="color: #666; margin-left: 20px; margin-bottom: 15px;">
+                        把二维码图片直接通过微信发送给老人，他们保存后可以长按识别。
+                    </p>
+                    
+                    <p><strong>3️⃣ 直接发送链接</strong></p>
+                    <p style="color: #666; margin-left: 20px;">
+                        在微信中直接发送网址链接，老人点击即可打开产品说明。
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">❓ 常见问题解答</div>
+            
+            <div class="method">
+                <div class="method-title" style="color: #0d47a1;">Q1: 这些服务真的是免费的吗？</div>
+                <p style="color: #555; line-height: 1.8;">
+                    <strong>答：</strong>是的！Netlify、GitHub Pages 和 Vercel 对个人小型项目都提供永久免费服务。您上传的产品说明页面属于小型静态网页，完全在免费额度内。
+                </p>
+            </div>
+            
+            <div class="method">
+                <div class="method-title" style="color: #0d47a1;">Q2: 网址会过期吗？</div>
+                <p style="color: #555; line-height: 1.8;">
+                    <strong>答：</strong>不会！只要您不主动删除上传的文件，网址就会一直有效。建议保存好网址链接。
+                </p>
+            </div>
+            
+            <div class="method">
+                <div class="method-title" style="color: #0d47a1;">Q3: 我完全不懂技术，能操作吗？</div>
+                <p style="color: #555; line-height: 1.8;">
+                    <strong>答：</strong>完全可以！选择 Netlify 方法，只需要：注册账号 → 拖拽文件 → 复制网址 → 生成二维码。全程不超过5分钟，就像发微信一样简单！
+                </p>
+            </div>
+            
+            <div class="method">
+                <div class="method-title" style="color: #0d47a1;">Q4: 老人用微信扫码后能看懂吗？</div>
+                <p style="color: #555; line-height: 1.8;">
+                    <strong>答：</strong>完全可以！产品说明页面已经优化为：
+                </p>
+                <ul style="margin-left: 30px; margin-top: 10px; line-height: 1.8; color: #555;">
+                    <li>大字体，清晰易读</li>
+                    <li>完整的中文翻译</li>
+                    <li>彩色图标和分类，一目了然</li>
+                    <li>手机和电脑都能完美显示</li>
+                    <li>包含所有重要信息：功效、用法、注意事项等</li>
+                </ul>
+            </div>
+            
+            <div class="method">
+                <div class="method-title" style="color: #0d47a1;">Q5: 如果我想修改内容怎么办？</div>
+                <p style="color: #555; line-height: 1.8;">
+                    <strong>答：</strong>可以！修改 HTML 文件后，重新上传到同一个位置即可，网址和二维码都不需要改变。
+                </p>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <h3 style="color: #e65100; margin-bottom: 15px;">🎯 快速上手路径（推荐）</h3>
+            <div style="font-size: 16px; line-height: 2;">
+                <strong>1.</strong> 选择 Netlify 方法（最简单）<br>
+                <strong>2.</strong> 花3分钟完成部署<br>
+                <strong>3.</strong> 复制网址到下方二维码生成器<br>
+                <strong>4.</strong> 下载二维码，发送给老人<br>
+                <strong>5.</strong> 完成！老人扫码即可查看产品说明 ✅
+            </div>
+        </div>
+    </div>
+    
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <script>
+        let qrCodeInstance = null;
+        
+        function generateQR() {
+            const url = document.getElementById('urlInput').value.trim();
+            
+            if (!url) {
+                alert('❌ 请先输入网页地址！');
+                return;
+            }
+            
+            // 验证URL格式
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                alert('❌ 请输入完整的网址，需要以 http:// 或 https:// 开头');
+                return;
+            }
+            
+            // 清除之前的二维码
+            const qrcodeDiv = document.getElementById('qrcode');
+            qrcodeDiv.innerHTML = '';
+            
+            // 生成新的二维码
+            qrCodeInstance = new QRCode(qrcodeDiv, {
+                text: url,
+                width: 300,
+                height: 300,
+                colorDark: "#0d47a1",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            
+            // 显示下载按钮
+            document.getElementById('downloadBtn').style.display = 'inline-block';
+            
+            // 添加成功提示
+            setTimeout(() => {
+                const note = document.createElement('div');
+                note.style.marginTop = '20px';
+                note.style.padding = '15px';
+                note.style.background = '#e8f5e9';
+                note.style.borderRadius = '10px';
+                note.style.fontSize = '16px';
+                note.style.color = '#2e7d32';
+                note.innerHTML = `
+                    <strong>✅ 二维码生成成功！</strong><br>
+                    老人用微信"扫一扫"这个二维码，就能看到完整的产品说明了！<br>
+                    <small style="color: #666;">提示：可以点击"下载二维码"按钮保存图片</small>
+                `;
+                qrcodeDiv.appendChild(note);
+            }, 100);
+        }
+        
+        function downloadQR() {
+            const canvas = document.querySelector('#qrcode canvas');
+            if (canvas) {
+                const url = canvas.toDataURL('image/png');
+                const link = document.createElement('a');
+                link.download = 'OMEGARX3鱼油产品说明二维码.png';
+                link.href = url;
+                link.click();
+                alert('✅ 二维码已保存到您的下载文件夹！');
+            } else {
+                alert('❌ 请先生成二维码！');
+            }
+        }
+        
+        // 回车键快捷生成
+        document.getElementById('urlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateQR();
+            }
+        });
+    </script>
+</body>
+</html>
